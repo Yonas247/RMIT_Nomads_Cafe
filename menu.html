@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="js/scripts/simplecartjs/simpleCart.js"></script>
+  <script src="js/scripts/simplecartjs-config.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+
   <title>Coffee Buzz - Menu</title>
 	<link rel="icon" href="img/coffee-buzz-logo.png" type="image/png">
 
@@ -35,7 +41,7 @@
               <li class="nav-item"><a class="nav-link" href="about.html">About</a></li> 
               <li class="nav-item active"><a class="nav-link" href="menu.html">Menu</a>
               <li class="nav-item"><a class="nav-link" href="barista.html">Baristas</a>
-
+              
               <!-- <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Blog</a>
@@ -45,6 +51,7 @@
                 </ul>
 							</li> -->
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="cart.html" class="button">View Cart (<span class="simpleCart_quantity"></span> items)</a></li>
             </ul>
           </div> 
         </div>
@@ -100,229 +107,387 @@
           <h4 class="intro-title">Drink Menu</h4>
           <h2>Fresh Beverages</h2>
         </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/cappuccino2.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Cappuccino</h4>
-                  <h3 class="price-tag">$</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
+        <div class="row section">
+                    <div class="col-lg-6 simpleCart_shelfItem">
+                      <div class="media align-items-center food-card">
+                        <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/espresso1.png" alt="">
+                        <div class="media-body">
+                          <div class="d-flex justify-content-between food-card-title">
+                            <h4 id="Espresso" class = "item_name">Espresso</h4>
+                            <h3 class = "price-tag"><div id = "ESPPrice"></div></h3>
+                          </div>
+                              <p>Description:</p>
+                              <p>Whales and darkness moving form cattle</p>
+                              <select id = "ESP" class="item_size" onchange="getPriceOfCoffee('ESP')"> 
+                                  <option value="NA">--Select Size--</option>
+                                  <option value="S">Small </option>
+                              </select>
+                            <div>
+                              <p>Qty:</p>
+                              <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                              <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 simpleCart_shelfItem">
+                        <div class="media align-items-center food-card">
+                          <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/espresso1.png" alt="">
+                          <div class="media-body">
+                            <div class="d-flex justify-content-between food-card-title">
+                              <h4 id="DoubleEspresso" class = "item_name">Double Espresso</h4>
+                              <h3 class = "price-tag"><div id = "DESPPrice"></div></h3>
+                            </div>
+                                <p>Description:</p>
+                                <p>Whales and darkness moving form cattle</p>
+                                <select id = "DESP" class="item_size" onchange="getPriceOfCoffee('DESP')"> 
+                                    <option value="NA">--Select Size--</option>
+                                    <option value="S">Small </option>
+                                </select>
+                              <div>
+                                <p>Qty:</p>
+                                <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6 simpleCart_shelfItem">
+                          <div class="media align-items-center food-card">
+                            <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/latte3.png" alt="">
+                            <div class="media-body">
+                              <div class="d-flex justify-content-between food-card-title">
+                                <h4 id="Latte" class = "item_name">Latte</h4>
+                                <h3 class = "price-tag"><div id = "LATPrice"></div></h3>
+                              </div>
+                                  <p>Description:</p>
+                                  <p>Whales and darkness moving form cattle</p>
+                                  <select id = "LAT" class="item_size" onchange="getPriceOfCoffee('LAT')"> 
+                                      <option value="NA">--Select Size--</option>
+                                      <option value="L">Large</option>
+                                  </select>
+                                <div>
+                                  <p>Qty:</p>
+                                  <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                  <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6 simpleCart_shelfItem">
+                            <div class="media align-items-center food-card">
+                              <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/cappuccino2.png" alt="">
+                              <div class="media-body">
+                                <div class="d-flex justify-content-between food-card-title">
+                                  <h4 id="Cappuccino" class = "item_name">Cappuccino</h4>
+                                  <h3 class = "price-tag"><div id = "CAPPPrice"></div></h3>
+                                </div>
+                                    <p>Description:</p>
+                                    <p>Whales and darkness moving form cattle</p>
+                                    <select id = "CAPP" class="item_size" onchange="getPriceOfCoffee('CAPP')"> 
+                                        <option value="NA">--Select Size--</option>
+                                        <option value="M">Medium</option>
+                                        <option value="L">Large</option>
+                                    </select>
+                                  <div>
+                                    <p>Qty:</p>
+                                    <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                    <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-6 simpleCart_shelfItem">
+                              <div class="media align-items-center food-card">
+                                <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/longblack1.png" alt="">
+                                <div class="media-body">
+                                  <div class="d-flex justify-content-between food-card-title">
+                                    <h4 id="LongBlack" class = "item_name">Long Black</h4>
+                                    <h3 class = "price-tag"><div id = "LBPrice"></div></h3>
+                                  </div>
+                                      <p>Description:</p>
+                                      <p>Whales and darkness moving form cattle</p>
+                                      <select id = "LB" class="item_size" onchange="getPriceOfCoffee('LB')"> 
+                                          <option value="NA">--Select Size--</option>
+                                          <option value="M">Medium</option>
+                                          <option value="L">Large</option>
+                                      </select>
+                                    <div>
+                                      <p>Qty:</p>
+                                      <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                      <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-6 simpleCart_shelfItem">
+                                <div class="media align-items-center food-card">
+                                  <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/hotchoco.png" alt="">
+                                  <div class="media-body">
+                                    <div class="d-flex justify-content-between food-card-title">
+                                      <h4 id="hotChocolate" class = "item_name">Hot Chocolate</h4>
+                                      <h3 class = "price-tag"><div id = "HCPrice"></div></h3>
+                                    </div>
+                                        <p>Description:</p>
+                                        <p>Whales and darkness moving form cattle</p>
+                                        <select id = "HC" class="item_size" onchange="getPriceOfCoffee('HC')"> 
+                                            <option value="NA">--Select Size--</option>
+                                            <option value="M">Medium</option>
+                                            <option value="L">Large</option>
+                                        </select>
+                                      <div>
+                                        <p>Qty:</p>
+                                        <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                        <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                                  </div>
+                                </div>
+                              </div>
+                          
+                                <div class="col-lg-6 simpleCart_shelfItem">
+                                    <div class="media align-items-center food-card">
+                                      <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/tea12.jpg" alt="">
+                                      <div class="media-body">
+                                        <div class="d-flex justify-content-between food-card-title">
+                                          <h4 id="EarlGreyTea" class = "item_name">Earl Grey Tea</h4>
+                                          <h3 class = "price-tag"><div id = "EGTPrice"></div></h3>
+                                        </div>
+                                            <p>Description:</p>
+                                            <p>Whales and darkness moving form cattle</p>
+                                            <select id = "EGT" class="item_size" onchange="getPriceOfCoffee('EGT')"> 
+                                                <option value="NA">--Select Size--</option>
+                                                <option value="M">Medium</option>
+                                                <option value="L">Large</option>
+                                            </select>
+                                          <div>
+                                            <p>Qty:</p>
+                                            <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                            <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-lg-6 simpleCart_shelfItem">
+                                      <div class="media align-items-center food-card">
+                                        <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/tea13.jpg" alt="">
+                                        <div class="media-body">
+                                          <div class="d-flex justify-content-between food-card-title">
+                                            <h4 id="AssamTea" class = "item_name">Assam Tea</h4>
+                                            <h3 class = "price-tag"><div id = "EGPrice"></div></h3>
+                                          </div>
+                                              <p>Description:</p>
+                                              <p>Whales and darkness moving form cattle</p>
+                                              <select id = "AT" class="item_size" onchange="getPriceOfCoffee('AT')"> 
+                                                  <option value="NA">--Select Size--</option>
+                                                  <option value="M">Medium</option>
+                                                  <option value="L">Large</option>
+                                              </select>
+                                            <div>
+                                              <p>Qty:</p>
+                                              <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                              <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-6 simpleCart_shelfItem">
+                                        <div class="media align-items-center food-card">
+                                          <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/tea12.jpg" alt="">
+                                          <div class="media-body">
+                                            <div class="d-flex justify-content-between food-card-title">
+                                              <h4 id="GreenTea" class = "item_name">Green Tea</h4>
+                                              <h3 class = "price-tag"><div id = "GTPrice"></div></h3>
+                                            </div>
+                                                <p>Description:</p>
+                                                <p>Whales and darkness moving form cattle</p>
+                                                <select id = "GT" class="item_size" onchange="getPriceOfCoffee('GT')"> 
+                                                    <option value="NA">--Select Size--</option>
+                                                    <option value="M">Medium</option>
+                                                    <option value="L">Large</option>
+                                                </select>
+                                              <div>
+                                                <p>Qty:</p>
+                                                <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                                <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-lg-6 simpleCart_shelfItem">
+                                          <div class="media align-items-center food-card">
+                                            <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/tea12.jpg" alt="">
+                                            <div class="media-body">
+                                              <div class="d-flex justify-content-between food-card-title">
+                                                <h4 id="MintTea" class = "item_name">Mint Tea</h4>
+                                                <h3 class = "price-tag"><div id = "MTPrice"></div></h3>
+                                              </div>
+                                                  <p>Description:</p>
+                                                  <p>Whales and darkness moving form cattle</p>
+                                                  <select id = "GT" class="item_size" onchange="getPriceOfCoffee('GT')"> 
+                                                      <option value="NA">--Select Size--</option>
+                                                      <option value="M">Medium</option>
+                                                      <option value="L">Large</option>
+                                                  </select>
+                                                <div>
+                                                  <p>Qty:</p>
+                                                  <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                                  <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                                            </div>
+                                          </div>
+                                        </div>      
+                                  <!-- <div class="col-lg-6">
+                                    <div class="media align-items-center food-card">
+                                      <img class="mr-3 mr-sm-4" src="img/home/espresso1.png" alt="">
+                                      <div class="media-body">
+                                        <div class="d-flex justify-content-between food-card-title">
+                                          <h4>Espresso</h4>
+                                          <h3 class="price-tag">$32</h3>
+                                        </div>
+                                        <p>Whales and darkness moving form cattle</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                          
+                                  <div class="col-lg-6">
+                                    <div class="media align-items-center food-card">
+                                      <img class="mr-3 mr-sm-4" src="img/home/latte2.png" alt="">
+                                      <div class="media-body">
+                                        <div class="d-flex justify-content-between food-card-title">
+                                          <h4>Latte</h4>
+                                          <h3 class="price-tag">$32</h3>
+                                        </div>
+                                        <p>Whales and darkness moving form cattle</p>
+                                      </div>
+                                    </div>
+                                  </div> -->
   
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/espresso1.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Espresso</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/latte2.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Latte</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/coffee5.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/coffee6.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/coffee7.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/coffee8.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/latte3.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          
     </section>
     <!--================Drinks menu section end =================-->    
 
     <!--================Food menu section start =================-->  
-  <section class="section-margin">
-      <div class="container">
-        <div class="section-intro mb-75px">
-          <h4 class="intro-title">Food Menu</h4>
-          <h2>Fresh Food</h2>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/cappuccino2.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Cappuccino</h4>
-                  <h3 class="price-tag">$</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
+    <section class="section-margin">
+        <div class="container">
+          <div class="section-intro mb-75px">
+            <h4 class="intro-title">Food Menu</h4>
+            <h2>Fresh Food</h2>
           </div>
+          <div class="row section">
+                      <div class="col-lg-6 simpleCart_shelfItem">
+                        <div class="media align-items-center food-card">
+                          <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/espresso1.png" alt="">
+                          <div class="media-body">
+                            <div class="d-flex justify-content-between food-card-title">
+                              <h4 id="Espresso" class = "item_name">Espresso</h4>
+                              <h3 class = "price-tag"><div id = "ESPPrice"></div></h3>
+                            </div>
+                                <p>Description:</p>
+                                <p>Whales and darkness moving form cattle</p>
+                                <select id = "ESP" class="item_size" onchange="getPriceOfCoffee('ESP')"> 
+                                    <option value="NA">--Select Size--</option>
+                                    <option value="S">Small </option>
+                                </select>
+                              <div>
+                                <p>Qty:</p>
+                                <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                          </div>
+                        </div>
+                      </div>
   
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/espresso1.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Espresso</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
+                      <div class="col-lg-6 simpleCart_shelfItem">
+                          <div class="media align-items-center food-card">
+                            <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/espresso1.png" alt="">
+                            <div class="media-body">
+                              <div class="d-flex justify-content-between food-card-title">
+                                <h4 id="DoubleEspresso" class = "item_name">Double Espresso</h4>
+                                <h3 class = "price-tag"><div id = "DESPPrice"></div></h3>
+                              </div>
+                                  <p>Description:</p>
+                                  <p>Whales and darkness moving form cattle</p>
+                                  <select id = "DESP" class="item_size" onchange="getPriceOfCoffee('DESP')"> 
+                                      <option value="NA">--Select Size--</option>
+                                      <option value="S">Small </option>
+                                  </select>
+                                <div>
+                                  <p>Qty:</p>
+                                  <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                  <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                            </div>
+                          </div>
+                        </div>
   
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/latte2.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Latte</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
+                        <div class="col-lg-6 simpleCart_shelfItem">
+                            <div class="media align-items-center food-card">
+                              <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/latte3.png" alt="">
+                              <div class="media-body">
+                                <div class="d-flex justify-content-between food-card-title">
+                                  <h4 id="Latte" class = "item_name">Latte</h4>
+                                  <h3 class = "price-tag"><div id = "LATPrice"></div></h3>
+                                </div>
+                                    <p>Description:</p>
+                                    <p>Whales and darkness moving form cattle</p>
+                                    <select id = "LAT" class="item_size" onchange="getPriceOfCoffee('LAT')"> 
+                                        <option value="NA">--Select Size--</option>
+                                        <option value="L">Large</option>
+                                    </select>
+                                  <div>
+                                    <p>Qty:</p>
+                                    <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                    <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                              </div>
+                            </div>
+                          </div>
   
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/coffee5.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/coffee6.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/coffee7.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/coffee8.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-lg-6">
-            <div class="media align-items-center food-card">
-              <img class="mr-3 mr-sm-4" src="img/home/latte3.png" alt="">
-              <div class="media-body">
-                <div class="d-flex justify-content-between food-card-title">
-                  <h4>Roasted Marrow</h4>
-                  <h3 class="price-tag">$32</h3>
-                </div>
-                <p>Whales and darkness moving form cattle</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+                          <div class="col-lg-6 simpleCart_shelfItem">
+                              <div class="media align-items-center food-card">
+                                <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/cappuccino2.png" alt="">
+                                <div class="media-body">
+                                  <div class="d-flex justify-content-between food-card-title">
+                                    <h4 id="Cappuccino" class = "item_name">Cappuccino</h4>
+                                    <h3 class = "price-tag"><div id = "CAPPPrice"></div></h3>
+                                  </div>
+                                      <p>Description:</p>
+                                      <p>Whales and darkness moving form cattle</p>
+                                      <select id = "CAPP" class="item_size" onchange="getPriceOfCoffee('CAPP')"> 
+                                          <option value="NA">--Select Size--</option>
+                                          <option value="M">Medium</option>
+                                          <option value="L">Large</option>
+                                      </select>
+                                    <div>
+                                      <p>Qty:</p>
+                                      <input type="text" value="1" class="item_Quantity" size="1"/><br /></div>
+                                      <p align="right"><a class="item_add" href="javascript:;">Add to Cart</a></p>
+                                </div>
+                              </div>
+                            </div>    
+                                    <!-- <div class="col-lg-6">
+                                      <div class="media align-items-center food-card">
+                                        <img class="mr-3 mr-sm-4" src="img/home/espresso1.png" alt="">
+                                        <div class="media-body">
+                                          <div class="d-flex justify-content-between food-card-title">
+                                            <h4>Espresso</h4>
+                                            <h3 class="price-tag">$32</h3>
+                                          </div>
+                                          <p>Whales and darkness moving form cattle</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                            
+                                    <div class="col-lg-6">
+                                      <div class="media align-items-center food-card">
+                                        <img class="mr-3 mr-sm-4" src="img/home/latte2.png" alt="">
+                                        <div class="media-body">
+                                          <div class="d-flex justify-content-between food-card-title">
+                                            <h4>Latte</h4>
+                                            <h3 class="price-tag">$32</h3>
+                                          </div>
+                                          <p>Whales and darkness moving form cattle</p>
+                                        </div>
+                                      </div>
+                                    </div> -->
+    
+            
+      </section>
     <!--================Food menu section end =================-->   
 
 
@@ -439,5 +604,60 @@
   <script src="js/jquery.ajaxchimp.min.js"></script>
   <script src="js/mail-script.js"></script>
   <script src="js/main.js"></script>
+  <script> 
+
+          function changeImage()
+          {
+          var img = document.getElementById("image");
+          /*alert(document.getElementById("SculptureStyle").value);*/
+          var imgsrc=document.getElementById("SculptureStyle").value + '+' + document.getElementById("BaseStyle").value + '+' + document.getElementById("BaseColor").value + '+' + document.getElementById("SculptureFinish").value + '.jpeg';
+          /*alert(imgsrc);*/
+          img.src=imgsrc;
+          return false;
+          }
+          
+           function getPriceOfCoffee(itemId)
+            {
+              var itemDiv = document.getElementById(itemId)
+              var item = document.getElementById(itemId).id
+              var itemPriceDiv = document.getElementById(item+"Price").id
+              var itemTag = document.getElementById(itemId).id + "Tag"
+              var item_size_price 
+              var h3 = document.createElement("h3");
+              var temp
+              h3.setAttribute('class', 'price-tag item_price');
+              console.log(h3.innerHTML)
+
+
+              if (itemDiv.value == "S")
+                 item_size_price = "$3.50"
+              else if(itemDiv.value == "M")
+                 item_size_price = "$4.50"
+              else if(itemDiv.value == "L")
+                 item_size_price = "$5.50"
+              
+                 
+
+              
+             
+              h3.innerHTML = " "+item_size_price;
+              if (!(document.getElementById(itemPriceDiv).hasChildNodes())) 
+                document.getElementById(itemPriceDiv).appendChild(h3);
+              else if (document.getElementById(itemPriceDiv).hasChildNodes() && !(itemDiv.value == "NA"))
+                {
+                  document.getElementById(itemPriceDiv).removeChild(document.getElementById(itemPriceDiv).firstChild);
+                  document.getElementById(itemPriceDiv).appendChild(h3);
+                }
+              else
+                document.getElementById(itemPriceDiv).removeChild(document.getElementById(itemPriceDiv).firstChild);
+
+
+              console.log(h3.innerHTML)
+                     
+            }
+            
+  </script>
+          
+  </script>
 </body>
 </html>
