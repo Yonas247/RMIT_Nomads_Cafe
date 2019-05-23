@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <?php include('login.php'); ?>
   <!--================ Header Menu Area start =================-->
   <header class="header_area">
     <div class="main_menu">
