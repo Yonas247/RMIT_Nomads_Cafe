@@ -98,6 +98,244 @@
     padding: 10px;
     font-size: 110%;
  }
+
+ .loginPage
+{
+	margin: 0;
+	padding: 0;
+	background: url(images/gold.jpg);
+	background-size: cover;
+	font-family: sans-serif;
+}
+.regoPage
+{
+	margin: 0;
+	padding: 0;
+	background: #efefef;
+	font-size: 16px;
+	color: #777;
+	font-family: sans-serif;
+	font-weight: 300;
+
+}
+#login-box
+{
+	position: relative;
+	margin: 5% auto;
+	height: 400px;
+	width: 600px;
+	background: #fff;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+.left-box
+{
+	position: relative;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	padding: 40px;
+	width:300px;
+	height: 400px;
+}
+.left-box h1
+{
+	margin: 0 0 20px 0;
+	font-weight: 300;
+	font-size: 28px;
+}
+.left-box input[type="text"],input[type="password"]
+{
+	display: block;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	padding: 4px;
+	width: 220;
+	height: 32px;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid #aaa;
+	font-family: sans-serif;
+	font-weight: 400px;
+	font: 15px;
+	transition: 0.2s ease;
+}
+
+.left-box input[type="submit"]
+{
+	margin-bottom: 28px;
+	width: 120px;
+	height: 32px;
+	background: #f44336;
+	border: none;
+	border-radius: 2px;
+	color: #fff;
+	font-family: sans-serif;
+	font-weight: 500;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.left-box input[type="submit"]:hover,input[type="submit"]:focus
+{
+	background: #00ff22;
+	transition: 0.2s ease;
+}
+.right-box
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	box-sizing: border-box;
+	padding: 40px;
+	width: 300px;
+	height: 400px;
+	background-image: url(images/colorfulbg.jpg);
+	background-size: cover;
+	background-position: center;
+
+}
+.or
+{
+	position: absolute;
+	top: 180px;
+	left: 280px;
+	width: 40px;
+	height: 40px;
+	background: #efefef;
+	border-radius: 50%;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+	line-height: 40px;
+	text-align: center;
+}
+.right-box .signinwith
+{
+	display: block;
+	margin-bottom: 40px;
+	font-size: 28px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+
+}
+.right-box button.social
+{
+	margin-bottom: 20px;
+	width: 220px;
+	height: 36px;
+	border: none;
+	border-radius: 2px;
+	color: #fff;
+	font-family: sans-serif;
+	font-weight: 500;
+	transition: 0.2s ease;
+	cursor: pointer;
+
+}
+.right-box button.facebook
+{
+	background: #32508e;
+}
+.right-box button.twitter
+{
+	background: #55acee;
+}
+.right-box button.google
+{
+	background: #dd4b39;
+}
+.title
+{
+	text-align: center;
+	padding: 50px 0 20px;
+}
+.title h1 
+{
+	margin: 0;
+	padding: 0;
+	color: #262626;
+	text-transform: uppercase;
+	font-size: 36px;
+}
+.container
+{
+	width: 50%;
+	height: 400px;
+	background: #fff;
+	margin: 0 auto;
+	border: 2px solid #fff;
+	box-shadow: 0 15px 40px rgba(0,0,0,.5);
+}
+
+.container .left
+{
+	float: left;
+	width: 50%;
+	height: 400px;
+	background: url(../img/lightgold.jpeg);
+	background-size: cover;
+	box-sizing: border-box;
+}
+
+.container .right
+{
+	float: right;
+	width: 50%;
+	height: 400px;
+	box-sizing: border-box;
+}
+
+.formBox
+{
+	width: 100%;
+	padding: 80px; 
+	box-sizing: border-box;
+	height: 400px;
+	background: #fff;
+}
+.formBox p
+{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #a6af13;
+}
+.formBox input
+{
+	width: 100%;
+	margin-bottom: 20px;
+}
+.formBox input[type="text"],
+.formBox input[type="Password"]
+{
+	border: none;
+	border-bottom: 2px solid #a6af13;
+	outline: none;
+	height: 40px;
+}
+.formBox input[type="text"]:focus,
+.formBox input[type="Password"]:focus
+{
+	border-bottom: 2px solid #262626;
+}
+.formBox input[type="submit"]
+{
+	border: none;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	background: #262626;
+	cursor: pointer;
+}
+.formBox input[type="submit"]: hover
+{
+	background: #a6af13;
+
+}
+.formBox a
+{
+	color: #262626;
+	font-size: 12px;
+	font-weight: bold;
+}
     
     
     
