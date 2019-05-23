@@ -372,19 +372,21 @@
             <h2>Fresh Food</h2>
           </div>
           <div class="row section">
+                      
                       <div class="col-lg-6 simpleCart_shelfItem">
                         <div class="media align-items-center food-card">
                           <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/chocolateResize2.png" alt="">
                           <div class="media-body">
                             <div class="d-flex justify-content-between food-card-title">
-                              <h4 id="Espresso" class = "item_name">Chocolate cake</h4>
-                              <h3 class = "price-tag"><div id = "ESPPrice"></div></h3>
+                              <h4 id="Chocolate" class = "item_name">Chocolate cake</h4>
+                              <h3 class = "price-tag"><div id = "CHOCPrice"></div></h3>
                             </div>
                                 <p>Description:</p>
                                 <p>2 layer chocolate cake with chocolate cream frosting!</p>
-                                <select id = "ESP" class="item_size" onchange="getPriceOfCoffee('ESP')"> 
+                                <select id = "CHOC" class="item_size" onchange="getPriceOfCoffee('CHOC')"> 
                                     <option value="NA">--Select Size--</option>
                                     <option value="S">Small </option>
+                                    <option value="M">Medium</option>
                                 </select>
                               <div>
                                 <p>Qty:</p>
@@ -399,14 +401,16 @@
                             <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/TeramisuResize.png" alt="">
                             <div class="media-body">
                               <div class="d-flex justify-content-between food-card-title">
-                                <h4 id="DoubleEspresso" class = "item_name">Teramisu cake</h4>
-                                <h3 class = "price-tag"><div id = "DESPPrice"></div></h3>
+                                <h4 id="Teramisu" class = "item_name">Teramisu cake</h4>
+                                <h3 class = "price-tag"><div id = "TERAPrice"></div></h3>
                               </div>
                                   <p>Description:</p>
                                   <p>Special teramisu cake with white chocolate frosting!</p>
-                                  <select id = "DESP" class="item_size" onchange="getPriceOfCoffee('DESP')"> 
+                                  <select id = "TERA" class="item_size" onchange="getPriceOfCoffee('TERA')"> 
                                       <option value="NA">--Select Size--</option>
                                       <option value="S">Small </option>
+                                      <option value="M">Medium </option>
+                                      <option value="L">Large </option>
                                   </select>
                                 <div>
                                   <p>Qty:</p>
@@ -421,13 +425,15 @@
                               <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/chickenBurgerResize.png" alt="">
                               <div class="media-body">
                                 <div class="d-flex justify-content-between food-card-title">
-                                  <h4 id="Latte" class = "item_name">Chicken Burger</h4>
-                                  <h3 class = "price-tag"><div id = "LATPrice"></div></h3>
+                                  <h4 id="ChickenBurger" class = "item_name">Chicken Burger</h4>
+                                  <h3 class = "price-tag"><div id = "CHICKPrice"></div></h3>
                                 </div>
                                     <p>Description:</p>
                                     <p>Chicken breast, salad, tomato, herbed mayo.</p>
-                                    <select id = "LAT" class="item_size" onchange="getPriceOfCoffee('LAT')"> 
+                                    <select id = "CHICK" class="item_size" onchange="getPriceOfCoffee('CHICK')"> 
                                         <option value="NA">--Select Size--</option>
+                                        <option value="S">Small</option>
+                                        <option value="M">Medium</option>
                                         <option value="L">Large</option>
                                     </select>
                                   <div>
@@ -443,13 +449,14 @@
                                 <img class="mr-3 mr-sm-4 item_image product_image" src="img/home/hamburgerResize.png" alt="">
                                 <div class="media-body">
                                   <div class="d-flex justify-content-between food-card-title">
-                                    <h4 id="Cappuccino" class = "item_name">Hamburger</h4>
-                                    <h3 class = "price-tag"><div id = "CAPPPrice"></div></h3>
+                                    <h4 id="Hamburger" class = "item_name">Hamburger</h4>
+                                    <h3 class = "price-tag"><div id = "HAMPrice"></div></h3>
                                   </div>
                                       <p>Description:</p>
                                       <p>Lean beef, salad, melt cheese, herbed mayo</p>
-                                      <select id = "CAPP" class="item_size" onchange="getPriceOfCoffee('CAPP')"> 
+                                      <select id = "HAM" class="item_size" onchange="getPriceOfCoffee('HAM')"> 
                                           <option value="NA">--Select Size--</option>
+                                          <option value="S">Small</option>
                                           <option value="M">Medium</option>
                                           <option value="L">Large</option>
                                       </select>
